@@ -1,0 +1,3 @@
+// Q6 Fetch and Display Product Data
+async function loadProducts(){try{const response=await fetch("https://fakestoreapi.com/products");if(!response.ok)throw new Error("HTTP "+response.status);const products=await response.json();products.forEach(product=>console.log("Product:",product.title,"\nPrice: $"+product.price,"\nImage:",product.image));}catch(error){console.error("Failed to load products. Please try again.",error);}}
+loadProducts();
