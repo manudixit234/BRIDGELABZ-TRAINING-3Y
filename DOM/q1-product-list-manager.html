@@ -1,8 +1,0 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Product List Manager</title><style>body{font:16px Arial;max-width:650px;margin:40px auto;padding:0 16px}li{padding:10px;border-bottom:1px solid #ddd}button{margin-left:8px}</style></head><body><h1>Product List Manager</h1><input id="productInput" placeholder="New product"><button id="add">Add</button><ul id="products"><li>Keyboard <button data-action="edit">Edit</button><button data-action="delete">Delete</button></li></ul><script>
-const list=document.querySelector("#products"),input=document.querySelector("#productInput");
-document.querySelector("#add").addEventListener("click",()=>{if(!input.value.trim())return;const li=document.createElement("li");li.append(document.createTextNode(input.value.trim()+" "));li.innerHTML+= '<button data-action="edit">Edit</button><button data-action="delete">Delete</button>';list.append(li);input.value="";});
-let editing=null;
-function save(){if(editing){const text=editing.querySelector("input").value.trim();if(text)editing.firstChild.textContent=text+" ";editing.querySelector("input").replaceWith(document.createTextNode(""));editing=null;}}
-list.addEventListener("click",e=>{const action=e.target.dataset.action;if(!action)return;const li=e.target.closest("li");if(action==="delete"){li.remove();return;}if(action==="edit"){save();const current=li.firstChild.textContent.trim();const editor=document.createElement("input");editor.value=current;li.firstChild.replaceWith(editor);editing=li;editor.focus();}});
-document.addEventListener("click",e=>{if(editing&&!editing.contains(e.target))save();});
-</script></body></html>
