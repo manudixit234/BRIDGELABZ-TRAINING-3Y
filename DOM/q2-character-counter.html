@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Character Counter</title><style>body{font:16px Arial;max-width:600px;margin:40px auto}textarea{width:100%;height:140px}.normal{color:green}.warning{color:#b8860b}.danger{color:red}</style></head><body><h1>Live Character Counter</h1><textarea id="message" maxlength="100" placeholder="Write up to 100 characters"></textarea><p id="counter" class="normal">100 characters remaining</p><button id="reset">Reset</button><script>
+const area=document.querySelector("#message"),counter=document.querySelector("#counter");
+function update(){const remaining=100-area.value.length;counter.textContent=remaining+" characters remaining";counter.className=remaining===0?"danger":remaining<=20?"warning":"normal";}
+area.addEventListener("input",update);area.addEventListener("beforeinput",e=>{if(area.value.length>=100&&e.inputType.startsWith("insert"))e.preventDefault();});
+document.querySelector("#reset").addEventListener("click",()=>{area.value="";update();});update();
+</script></body></html>

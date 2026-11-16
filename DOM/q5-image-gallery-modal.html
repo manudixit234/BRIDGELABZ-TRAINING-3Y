@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Image Gallery</title><style>body{font:16px Arial;margin:30px}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.gallery img{width:100%;height:140px;object-fit:cover;cursor:pointer}.modal{display:none;position:fixed;inset:0;background:#000c;align-items:center;justify-content:center}.modal.open{display:flex}.modal img{max-width:85%;max-height:85vh}</style></head><body><h1>Image Gallery</h1><div class="gallery" id="gallery"></div><div class="modal" id="modal"><img id="large" alt="Preview"></div><script>
+const gallery=document.querySelector("#gallery"),modal=document.querySelector("#modal"),large=document.querySelector("#large");
+for(let i=1;i<=6;i++){const img=document.createElement("img");img.src="https://picsum.photos/seed/gallery"+i+"/500/350";img.alt="Gallery image "+i;gallery.append(img);}
+gallery.addEventListener("click",e=>{if(e.target.tagName==="IMG"){large.src=e.target.src;modal.classList.add("open");}});
+large.addEventListener("click",e=>e.stopPropagation());modal.addEventListener("click",()=>modal.classList.remove("open"));
+</script></body></html>

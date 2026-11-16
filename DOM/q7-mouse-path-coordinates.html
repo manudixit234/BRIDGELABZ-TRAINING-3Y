@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mouse Coordinates</title><style>body{font:16px Arial;margin:30px}#box{width:400px;height:400px;max-width:90vw;background:#eef;border:2px solid #557;position:relative} .dot{width:10px;height:10px;background:red;border-radius:50%;position:absolute;transform:translate(-50%,-50%)}</style></head><body><h1>Mouse Path & Coordinates</h1><div id="box"></div><p id="coordinates">Move your mouse inside the box.</p><script>
+const box=document.querySelector("#box"),output=document.querySelector("#coordinates");
+box.addEventListener("mousemove",e=>{const rect=box.getBoundingClientRect();output.textContent=`clientX: ${e.clientX}, clientY: ${e.clientY}`;});
+box.addEventListener("dblclick",e=>{const rect=box.getBoundingClientRect(),dot=document.createElement("span");dot.className="dot";dot.style.left=(e.clientX-rect.left)+"px";dot.style.top=(e.clientY-rect.top)+"px";box.append(dot);});
+</script></body></html>

@@ -1,0 +1,6 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Custom Dropdown</title><style>body{font:16px Arial;margin:40px}.menu{display:none;border:1px solid #aaa;width:180px}.menu.open{display:block}.option{padding:10px;cursor:pointer}.option:hover{background:#def}</style></head><body><h1>Custom Dropdown</h1><button id="toggle">Choose a branch</button><div id="menu" class="menu"><div class="option">Computer Science</div><div class="option">AI & Data Science</div><div class="option">Electronics</div></div><script>
+const toggle=document.querySelector("#toggle"),menu=document.querySelector("#menu");
+toggle.addEventListener("click",e=>{e.stopPropagation();menu.classList.toggle("open");});
+menu.addEventListener("click",e=>{if(e.target.classList.contains("option")){toggle.textContent=e.target.textContent;menu.classList.remove("open");}});
+document.addEventListener("click",()=>menu.classList.remove("open"),true); // Capturing phase closes on outside click.
+</script></body></html>
