@@ -1,3 +1,0 @@
-// Q4 Custom Form Builder
-class FormBuilder{constructor(fields,root){this.fields=fields;this.root=root;}render(){this.root.innerHTML=this.fields.map((field,index)=>`<label>${field.label}<input type="${field.type}" name="field${index}" required></label>`).join("")+'<button type="button" id="submitForm">Submit</button>';this.root.querySelector("#submitForm").addEventListener("click",()=>document.querySelector("#output").textContent=JSON.stringify(this.getFormData(),null,2));}getFormData(){return Object.fromEntries([...this.root.querySelectorAll("input")].map(input=>[input.name,input.value]));}}
-new FormBuilder([{type:"text",label:"Username"},{type:"email",label:"Email"}],document.querySelector("#formRoot")).render();

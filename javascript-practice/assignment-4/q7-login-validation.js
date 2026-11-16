@@ -1,5 +1,0 @@
-// Q7 Login Form Validation using RegExp
-document.querySelector("#login").addEventListener("submit",event=>{event.preventDefault();const username=document.querySelector("#username").value,password=document.querySelector("#password").value;const errors=[];
- const checks=[["username",username.length>=5,"Username must contain at least 5 characters."],["password",password.length>=8&&/[A-Z]/.test(password)&&/[a-z]/.test(password)&&/\d/.test(password)&&/[^A-Za-z0-9]/.test(password),"Password needs 8+ characters, uppercase, lowercase, number and special character."]];
- checks.forEach(([id,ok,message])=>{document.getElementById(id+"Error").textContent=ok?"":message;if(!ok)errors.push(message);});
- document.querySelector("#message").textContent=errors.length?errors.join(" "):"Login details are valid.";});

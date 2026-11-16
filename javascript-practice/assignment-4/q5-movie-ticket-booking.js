@@ -1,4 +1,0 @@
-// Q5 Movie Ticket Booking
-document.querySelector("#booking").addEventListener("submit",event=>{event.preventDefault();const name=document.querySelector("#name").value.trim(),email=document.querySelector("#email").value.trim(),seats=Number(document.querySelector("#seats").value);
- const validName=/^[A-Za-z ]+$/.test(name),validEmail=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),validSeats=Number.isInteger(seats)&&seats>=1&&seats<=10;
- document.querySelector("#ticket").textContent=validName&&validEmail&&validSeats?JSON.stringify({name,email,seats},null,2):"Please enter a valid name, email and 1–10 seats.";});
