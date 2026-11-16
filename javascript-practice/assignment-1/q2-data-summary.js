@@ -1,3 +1,0 @@
-// Q2 Multi-Type Data Summary
-const data = [{label:"String",value:"JavaScript"},{label:"Number",value:42},{label:"Boolean",value:true},{label:"Array",value:[1,2]},{label:"Object",value:{course:"B.Tech"}},{label:"Null",value:null},{label:"Undefined",value:undefined}];
-console.table(data.map(({label,value})=>({label,value:String(value),type:Array.isArray(value)?"array":value===null?"null":typeof value})));
